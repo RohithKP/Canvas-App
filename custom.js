@@ -144,74 +144,14 @@ else{
 }
 }
 canvas.renderAll();
-//
-//var CanvasApp = angular.module('CanvasApp',[]);
-//CanvasApp.controller('imgCtrl',function($scope){
-////$http.get('imgdata.json').then(
-////	function(res){
-////	  $scope.assets = res.data;
-////	  console.log($scope.assets);
-////	}
-//	$scope.assets ={
-//    "header_images" : [
-//        {
-//            "id" : "havoc-header",
-//            "alt" : "Some alt text",
-//            "fname" : "admissions-general-havoc-header.jpg",
-//            "url" : "email-assets/header-images/admissions-general-havoc-header.jpg"
-//        },
-//        {
-//            "id" : "cob-header",
-//            "alt" : "Some more alt text",
-//            "fname" : "cob-banner.jpg",
-//            "url" : "email-assets/header-images/cob-banner.jpg"
-//        },
-//        {
-//            "id" : "css-header",
-//            "alt" : "still some more alt text",
-//            "fname" : "css-banner.jpg",
-//            "url" : "email-assets/header-images/css-banner.jpg"
-//        },
-//        {
-//            "id" : "huns-header",
-//            "alt" : "one more alt-text",
-//            "fname" : "huns-banner.jpg",
-//            "url" : "email-assets/header-images/huns-banner.jpg"
-//        }
-//    ]
-//};
-//);
-//});
-angular.module('canvasApp', []);
 
-function imgCtrl($scope) {
-  $scope.assets = {
-    "header_images" : [
-        {
-            "id" : "havoc-header",
-            "alt" : "Some alt text",
-            "fname" : "admissions-general-havoc-header.jpg",
-            "url" : "img/coconut.jpg"
-        },
-        {
-            "id" : "cob-header",
-            "alt" : "Some more alt text",
-            "fname" : "cob-banner.jpg",
-            "url" : "img/wedding.jpg"
-        },
-        {
-            "id" : "css-header",
-            "alt" : "still some more alt text",
-            "fname" : "css-banner.jpg",
-            "url" : "email-assets/header-images/css-banner.jpg"
-        },
-        {
-            "id" : "huns-header",
-            "alt" : "one more alt-text",
-            "fname" : "huns-banner.jpg",
-            "url" : "email-assets/header-images/huns-banner.jpg"
-        }
-    ]
-    };
-  
-}
+var CanvasApp = angular.module('CanvasApp',[]);
+
+CanvasApp.controller('imgCtrl',function($scope,$http){
+$http.get('imgdata.json').then(
+	function(res){
+	  $scope.assets = res.data;
+	  console.log($scope.assets);
+	}
+);
+});
