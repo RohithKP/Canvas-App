@@ -1,0 +1,36 @@
+{
+    "images" : [
+        {
+            "id" : "back1",
+            "alt" : "Some alt text",
+            "url" : "img/back1.jpg"
+        },
+        {
+            "id" : "back2",
+            "alt" : "Some more alt text",
+            "url" : "img/wedding.jpg"
+        },
+        {
+            "id" : "back3",
+            "alt" : "still some more alt text",
+            "url" : "img/back2.jpg"
+        },
+        {
+            "id" : "back4",
+            "alt" : "one more alt-text",
+
+            "url" : "img/back3.jpg"
+        },
+		{
+            "id" : "back5",
+            "alt" : "one more alt-text",
+
+            "url" : "img/coconut.jpg"
+        },		{
+            "id" : "back5",
+            "alt" : "one more alt-text",
+
+            "url" : "img/back1.jpg"
+        }
+    ]
+}
