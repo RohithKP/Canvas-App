@@ -18,18 +18,15 @@
         {
             "id" : "back4",
             "alt" : "one more alt-text",
-
             "url" : "img/back3.jpg"
         },
 		{
             "id" : "back5",
             "alt" : "one more alt-text",
-
             "url" : "img/coconut.jpg"
         },		{
-            "id" : "back5",
+            "id" : "back6",
             "alt" : "one more alt-text",
-
             "url" : "img/back1.jpg"
         }
     ]
