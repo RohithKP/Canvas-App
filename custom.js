@@ -113,7 +113,7 @@ function drag(ev) {
 	  crt = ev.target.cloneNode(true);
     crt.style.position = "absolute";
 	  crt.style.left=-200+"px";crt.style.top=-200+"px";
-//    crt.style.zIndex='998';
+    crt.style.zIndex='998';
     document.getElementById('imdem').appendChild(crt);
 	ev.dataTransfer.setDragImage(document.getElementById("imdemo"), 2000, 2000);
 	ev.dataTransfer.setData("text", ev.target.id);
