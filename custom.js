@@ -148,7 +148,7 @@ canvas.renderAll();
 var CanvasApp = angular.module('CanvasApp',[]);
 
 CanvasApp.controller('bckCtrl',function($scope,$http){
-$http.get('imgdata.json').then(
+$http.get('json/imgdata.json').then(
 	function(res){
 	  $scope.assets = res.data;
 	  console.log($scope.assets);
@@ -157,7 +157,7 @@ $http.get('imgdata.json').then(
 });
 
 CanvasApp.controller('objCtrl',function($scope,$http){
-$http.get('objdata.json').then(
+$http.get('json/objdata.json').then(
 	function(res){
 	  $scope.assets2 = res.data;
 	  console.log($scope.assets2);
