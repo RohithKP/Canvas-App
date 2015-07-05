@@ -1,28 +1,36 @@
 {
     "header_images" : [
         {
-            "id" : "havoc-header",
+            "id" : "back1",
             "alt" : "Some alt text",
-            "fname" : "admissions-general-havoc-header.jpg",
-            "url" : "email-assets/header-images/admissions-general-havoc-header.jpg"
+            "url" : "img/back1.jpg"
         },
         {
-            "id" : "cob-header",
+            "id" : "back2",
             "alt" : "Some more alt text",
-            "fname" : "cob-banner.jpg",
-            "url" : "email-assets/header-images/cob-banner.jpg"
+            "url" : "img/wedding.jpg"
         },
         {
-            "id" : "css-header",
+            "id" : "back3",
             "alt" : "still some more alt text",
-            "fname" : "css-banner.jpg",
-            "url" : "email-assets/header-images/css-banner.jpg"
+            "url" : "img/back2.jpg"
         },
         {
-            "id" : "huns-header",
+            "id" : "back4",
             "alt" : "one more alt-text",
-            "fname" : "huns-banner.jpg",
-            "url" : "email-assets/header-images/huns-banner.jpg"
+
+            "url" : "img/back3.jpg"
+        },
+		{
+            "id" : "back5",
+            "alt" : "one more alt-text",
+
+            "url" : "img/coconut.jpg"
+        },		{
+            "id" : "back5",
+            "alt" : "one more alt-text",
+
+            "url" : "img/back1.jpg"
         }
     ]
 }
