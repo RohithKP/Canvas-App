@@ -1,0 +1,24 @@
+{
+  "name": "canvas app",
+  "version": "0.0.1",
+  "description": "canvas app using fabric.js",
+  "main": "index.html",
+  "keywords": [
+    "app"
+  ],
+  "authors": [
+    "Rohith K P"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.5",
+    "fabric": "~1.5.0"
+  }
+}
