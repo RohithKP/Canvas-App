@@ -47,13 +47,13 @@
 		<h3 class="text-center">Objects</h3>
 		<div class="container-outer" ng-controller="objCtrl">
 		  	<div class="container-inner" id="images" style="display:inline-flex">
-		  	<img draggable="true" ng-repeat="images in assets2.images" name="objc" src="{{images.url}}"  id="{{images.id}}" ondblclick="selectimg(this);" 	ondragstart="drag(event)">
+		  	<img draggable="true" style="padding:4px;" ng-repeat="images in assets2.images" name="objc" src="{{images.url}}"  id="{{images.id}}" ondblclick="selectimg(this);" 	ondragstart="drag(event)">
 		  	</div>
         </div>
 		<h3 class="text-center">Backgrounds</h3>
 		<div class="container-outer" ng-controller="bckCtrl">
 		  	<div class="container-inner" style="display:inline-flex" >
-		  	<img ng-repeat="header in assets.header_images" src="{{header.url}}"  id="{{header.id}}" ondblclick="setbackgnd(this);" ondragstart="drag(event)" >
+		  	<img ng-repeat="header in assets.header_images" src="{{header.url}}"  id="{{header.id}}" ondblclick="setbackgnd(this);" ondragstart="drag(event)" style="padding:4px;" >
 		  	</div>
 		</div>
 	<button id="clr" onclick="setbackgnd(this);" class="btn-primary">Clear Background</button>
