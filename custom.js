@@ -110,9 +110,9 @@ function allowDrop(ev) {
 
 var crt,dragX,dragY;
 function drag(ev) {
-	  crt = ev.target.cloneNode(true);
+	crt = ev.target.cloneNode(true);
     crt.style.position = "absolute";
-	  crt.style.left=-200+"px";crt.style.top=-200+"px";
+	crt.style.left=-200+"px";crt.style.top=-200+"px";
     crt.style.zIndex='998';
     document.getElementById('imdem').appendChild(crt);
 	ev.dataTransfer.setDragImage(document.getElementById("imdemo"), 2000, 2000);
@@ -123,12 +123,12 @@ function drag(ev) {
 document.addEventListener("dragover", function(ev1){
 ev1 = ev1 || window.event;
 dragX = ev1.pageX; dragY = ev1.pageY;
-crt.style.left=dragX+"px";crt.style.top=  dragY-120+"px";
+crt.style.left=dragX-65+"px";crt.style.top=  dragY-120+"px";
 console.log("X: "+dragX+" Y: "+dragY);
 }, false);
 
 //make the cloned image not visible
-document.addEventListener("dragend", function( event ) {crt.style.left=-3300+'px';});
+document.addEventListener("dragend", function( event ) {crt.remove();});
 
 
 
