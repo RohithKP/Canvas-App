@@ -8336,17 +8336,33 @@ fabric.PatternBrush = fabric.util.createClass(fabric.PencilBrush, /** @lends fab
      * @private
      */
     _getActionFromCorner: function(target, corner) {
-      var action = 'drag';
+//      var action = 'drag';
+//      if (corner) {
+//        action = (corner === 'ml' || corner === 'mr')
+//          ? 'scaleX'
+//          : (corner === 'mt' || corner === 'mb')
+//            ? 'scaleY'
+//            : corner === 'mtr'
+//              ? 'rotate'
+//              : 'scale';
+//      }
+//      return action;
+		      var action = 'drag';
       if (corner) {
         action = (corner === 'ml' || corner === 'mr')
           ? 'scaleX'
           : (corner === 'mt' || corner === 'mb')
             ? 'scaleY'
-            : corner === 'mtr'
+            : corner === 'tr'
               ? 'rotate'
-              : 'scale';
+                  : corner === 'tl'
+                  ? 'scale'
+                      : corner === 'bl'
+                      ? 'remove'
+                          : 'scale'; //PEDRO
       }
       return action;
+
     },
 
     /**
@@ -8363,6 +8379,22 @@ fabric.PatternBrush = fabric.util.createClass(fabric.PencilBrush, /** @lends fab
           corner = target._findTargetCorner(this.getPointer(e, true)),
           action = this._getActionFromCorner(target, corner),
           origin = this._getOriginFromCorner(target, corner);
+      if (action == 'remove')
+          {
+        if (this.getActiveGroup() && this.getActiveGroup()!= 'undefined')
+            {
+            this.getActiveGroup().forEachObject(function(o)
+                {
+                o.remove();
+                });
+            this.discardActiveGroup();
+            }
+        else
+            {
+            target.remove();
+            }
+        return;
+        }
 
       this._currentTransform = {
         target: target,
@@ -13128,32 +13160,32 @@ fabric.util.object.extend(fabric.Object.prototype, /** @lends fabric.Object.prot
 
       if (!this.get('lockUniScaling')) {
 
-        // middle-top
-        this._drawControl('mt', ctx, methodName,
-          left + width/2 - scaleOffset,
-          top - scaleOffset);
+//        // middle-top
+//        this._drawControl('mt', ctx, methodName,
+//          left + width/2 - scaleOffset,
+//          top - scaleOffset);
 
         // middle-bottom
-        this._drawControl('mb', ctx, methodName,
-          left + width/2 - scaleOffset,
-          top + height - scaleOffset);
+//        this._drawControl('mb', ctx, methodName,
+//          left + width/2 - scaleOffset,
+//          top + height - scaleOffset);
 
-        // middle-right
-        this._drawControl('mr', ctx, methodName,
-          left + width - scaleOffset,
-          top + height/2 - scaleOffset);
-
-        // middle-left
-        this._drawControl('ml', ctx, methodName,
-          left - scaleOffset,
-          top + height/2 - scaleOffset);
-      }
+//        // middle-right
+//        this._drawControl('mr', ctx, methodName,
+//          left + width - scaleOffset,
+//          top + height/2 - scaleOffset);
+//
+//        // middle-left
+//        this._drawControl('ml', ctx, methodName,
+//          left - scaleOffset,
+//          top + height/2 - scaleOffset);
+//      }
 
       // middle-top-rotate
-      if (this.hasRotatingPoint) {
-        this._drawControl('mtr', ctx, methodName,
-          left + width/2 - scaleOffset,
-          top - this.rotatingPointOffset - scaleOffset);
+//      if (this.hasRotatingPoint) {
+//        this._drawControl('mtr', ctx, methodName,
+//          left + width/2 - scaleOffset,
+//          top - this.rotatingPointOffset - scaleOffset);
       }
 
       ctx.restore();
@@ -13168,9 +13200,47 @@ fabric.util.object.extend(fabric.Object.prototype, /** @lends fabric.Object.prot
       if (!this.isControlVisible(control)) {
         return;
       }
+     console.log(control);
       var size = this.cornerSize;
       isVML() || this.transparentCorners || ctx.clearRect(left, top, size, size);
-      ctx[methodName](left, top, size, size);
+      var SelectedIconImage = new Image();
+
+    switch (control)
+        {
+        case 'tl':
+            SelectedIconImage.src = '../img/scale.png'; //MOVE CONTROL
+				ctx.drawImage(SelectedIconImage, left, top, size, size);
+            break;
+        case 'tr':
+            SelectedIconImage.src = '../img/rotate.png'; //ROTATE CONTROL
+				ctx.drawImage(SelectedIconImage, left, top, size, size);
+            break;
+//        case 'mt':
+//            SelectedIconImage.src = '../js/comunes/img/icono_escala_vertical.jpg'; //VERTICAL RESIZE
+//            break;
+        case 'bl':
+            SelectedIconImage.src = '../img/delete.png'; //DELETE CONTROL
+				ctx.drawImage(SelectedIconImage, left, top, size, size);
+            break;
+        case 'br':
+            SelectedIconImage.src = '../img/scale2.png';
+				ctx.drawImage(SelectedIconImage, left, top, size, size);//HORIZONTAL AND VERTICAL RESIZE SIMULTANEOUSLY
+            break;
+//        case 'mb':
+//            SelectedIconImage.src = '../js/comunes/img/icono_escala_vertical.jpg'; //VERTICAL RESIZE
+//            break;
+//        case 'ml':
+//            SelectedIconImage.src = '../js/comunes/img/icono_escala_horizontal.jpg'; //HORIZONTAL RESIZE
+//            break;
+//        case 'mr':
+//            SelectedIconImage.src = '../js/comunes/img/icono_escala_horizontal.jpg'; //HORIZONTAL RESIZE
+//            break;
+        default:
+            ctx[methodName](left, top, size, size);
+            break;
+        }
+
+
     },
 
     /**
@@ -13230,11 +13300,11 @@ fabric.util.object.extend(fabric.Object.prototype, /** @lends fabric.Object.prot
           tr: true,
           br: true,
           bl: true,
-          ml: true,
-          mt: true,
-          mr: true,
-          mb: true,
-          mtr: true
+//          ml: true,
+//          mt: true,
+//          mr: true,
+//          mb: true,
+//          mtr: true
         };
       }
       return this._controlsVisibility;
