@@ -8059,7 +8059,7 @@ fabric.PatternBrush = fabric.util.createClass(fabric.PencilBrush, /** @lends fab
      * @type String
      * @default
      */
-    selectionBorderColor:   'rgba(255, 255, 255, 0.3)',
+    selectionBorderColor:  'rgba(255, 255, 255, 0.3)',
 
     /**
      * Width of a line used in object/group selection
@@ -10908,7 +10908,7 @@ fabric.util.object.extend(fabric.StaticCanvas.prototype, /** @lends fabric.Stati
      * @type String
      * @default
      */
-    borderColor:              'rgba(102,153,255,0.75)',
+    borderColor:             'red',// 'rgba(102,153,255,0.75)',
 
     /**
      * Color of controlling corners of an object (when it's active)
